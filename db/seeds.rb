@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Link.destroy_all
+
+Link.create([
+  {site: "Snapchat", title: "Idk", url: "snapchat.com", img: "imgur.com"},
+  {site: "Facebook", title: "Idk", url: "facebook.com", img: "imgur.com"},
+  {site: "Twitter", title: "Idk", url: "twitter.com", img: "imgur.com"},
+])
