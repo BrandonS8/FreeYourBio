@@ -16,6 +16,9 @@ class LinksController < ApplicationController
     puts link_params
     if @link.site == "Snapchat"
       @link.update(url: "https://www.snapchat.com/add/#{link_params[:url]}", img: "https://app.snapchat.com/web/deeplink/snapcode?username=#{link_params[:url]}&type=SVG")
+    elsif @link.site == "Facebook"
+      metaUrl = MetaInspector.new(@link.url)
+      @link.update(img: metaUrl.images.best)
     end
     redirect_to link_path(@link)
   end
