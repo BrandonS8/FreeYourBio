@@ -1,0 +1,14 @@
+<h1>New</h1>
+<%= form_for @link do |f| %>
+  <%= f.label :site %>
+  <%= f.select(:site, options_for_select([['Snapchat'], ['YouTube']])) %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= params[:title] %>
+  <%= f.label :url, "Username or URL if using other" %>
+  <%= f.text_field :url %>
+  <%= f.label :img %>
+  <%= f.text_field :img %>
+  <%= f.submit %>
+<% end %>
+

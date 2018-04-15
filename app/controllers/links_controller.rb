@@ -3,18 +3,25 @@ class LinksController < ApplicationController
     @links = Link.all
   end
 
+  def show
+    @link = Link.find(params[:id])
+  end
+
   def new
     @link = Link.new
   end
 
   def create
     @link = Link.create(link_params)
+    puts link_params
+    if @link.site == "Snapchat"
+      @link.update(url: "https://www.snapchat.com/add/#{link_params[:url]}", img: "https://app.snapchat.com/web/deeplink/snapcode?username=#{link_params[:url]}&type=SVG")
+    end
     redirect_to link_path(@link)
   end
 
   def edit
     @link = Link.find(params[:id])
-    redirect_to link_path(@link)
   end
 
   def update
