@@ -1,9 +1,0 @@
-<h1>Index</h1>
-<% @links.each do |link| %>
-<%= link_to link_path(link) do %>
-<h1><%=link.title%></h1>
-<img src=<%= link.img%> />
-<%=link.url%>
-<% end %>
-<%end%>
-<%= link_to "NEW", new_link_path %> 

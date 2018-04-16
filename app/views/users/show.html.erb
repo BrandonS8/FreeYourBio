@@ -3,4 +3,5 @@
 
 <% @user.links.each do |link| %>
   <%=link.title%>
+<%= link_to "Link", user_link_path(@user, link) %> 
 <% end %>

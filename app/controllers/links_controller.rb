@@ -1,9 +1,20 @@
 class LinksController < ApplicationController
+  # def index
+  #   # if current_user.try(:admin?)
+  #   @user = User.find_by_username(params[:id])
+  #   @links = @user.links
+  #   # else
+  #   # redirect_to root_path
+  #   # end
+  # end
+
   def index
-    @links = Link.all
+    @user = User.find_by_username(params[:user_id])
+    redirect_to user_profile_path(@user)
   end
 
   def show
+    @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
   end
 
@@ -27,19 +38,32 @@ class LinksController < ApplicationController
   end
 
   def edit
+    @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
   end
 
   def update
+    @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
-    @link.update(link_params)
-    redirect_to link_path(@link)
+    if @link.user == current_user
+      @link.update(link_params)
+      redirect_to user_link_path(@user, @link)
+    else
+      flash[:alert] = "This is not yours! NO TOUCHY."
+      redirect_to user_profile_path(@user)
+    end
   end
 
   def destroy
+    @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
-    @link.destroy
-    redirect_to root_path
+    if @link.user == current_user
+      @link.destroy
+      redirect_to user_profile_path(@user)
+    else
+      flash[:alert] = "This is not yours! NO TOUCHY."
+      redirect_to user_profile_path(@user)
+    end
   end
 
   private

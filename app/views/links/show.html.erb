@@ -1,9 +1,9 @@
 <h1>Show</h1>
-
+<h1><%=@user.username%></h1>
 <h1><%=@link.title%></h1>
 
 <p><%=@link.site%></p>
 <%= link_to "ADD", @link.url %> 
 <%= image_tag @link.img %>
-<%= link_to "Edit", edit_link_path(@link) %> 
-<%= link_to "Delete",  link_path(@link), method: :delete%>
+<%= link_to "Edit", edit_user_link_path(@user, @link) %> 
+<%= link_to "Delete",  user_link_path(@user, @link), method: :delete%>

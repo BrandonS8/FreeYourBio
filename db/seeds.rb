@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Link.destroy_all
+User.destroy_all
+brandon = User.create(username: "brandon", email: "brandon@brandon.com", password: "password", admin: true)
 
-Link.create([
+brandon.links.create([
   {site: "Snapchat", title: "Idk", url: "http://snapchat.com", img: "http://imgur.com"},
   {site: "Facebook", title: "Idk", url: "http://facebook.com", img: "http://imgur.com"},
   {site: "Twitter", title: "Idk", url: "http://twitter.com", img: "http://imgur.com"},
