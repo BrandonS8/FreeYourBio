@@ -58,18 +58,20 @@ Gold level features:
 
 ## Models
 
-User Model:
-username:string
-email: string
-password: string
-admin: true/flase
+### User Model:
+
+username:string  
+email: string  
+password: string  
+admin: true/false  
 has_many: links
 
-Link Model:
-Title: string
-Site: string
-Url: string
-Img: string
+### Link Model:
+
+Title: string  
+Site: string  
+Url: string  
+Img: string  
 belongs_to: user
 
 ## Notes
