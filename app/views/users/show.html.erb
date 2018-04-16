@@ -1,2 +1,6 @@
 <%= @user %>
 <%= @user.username %>
+
+<% @user.links.each do |link| %>
+  <%=link.title%>
+<% end %>

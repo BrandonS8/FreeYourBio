@@ -12,7 +12,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.create(link_params)
+    @link = current_user.links.create!(link_params)
     puts link_params
     if @link.site == "Snapchat"
       @link.update(url: "https://www.snapchat.com/add/#{link_params[:url]}", img: "https://app.snapchat.com/web/deeplink/snapcode?username=#{link_params[:url]}&type=SVG")
