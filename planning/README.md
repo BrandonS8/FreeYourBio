@@ -26,6 +26,7 @@ My app aims to turn your bio from that mess that takes up all the space to write
 * User Authentication
 * Add titles to links
 * CRUD on links
+* No need to do much for supported sites, images and urls are set for you based on a username input, if an unsupported site has a primary meta image it will also be set for you
 
 Gold level features:
 
