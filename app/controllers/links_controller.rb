@@ -19,10 +19,12 @@ class LinksController < ApplicationController
   end
 
   def new
+    @user = User.find_by_username(params[:user_id])
     @link = Link.new
   end
 
   def create
+    @user = User.find_by_username(params[:user_id])
     @link = current_user.links.create!(link_params)
     puts link_params
     if @link.site == "Snapchat"
@@ -34,7 +36,7 @@ class LinksController < ApplicationController
       metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
       @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
     end
-    redirect_to link_path(@link)
+    redirect_to user_link_path(@user, @link)
   end
 
   def edit
@@ -45,7 +47,7 @@ class LinksController < ApplicationController
   def update
     @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
-    if @link.user == current_user
+    if @link.user == current_user || current_user.try(:admin?)
       @link.update(link_params)
       redirect_to user_link_path(@user, @link)
     else
@@ -57,7 +59,7 @@ class LinksController < ApplicationController
   def destroy
     @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
-    if @link.user == current_user
+    if @link.user == current_user || current_user.try(:admin?)
       @link.destroy
       redirect_to user_profile_path(@user)
     else
