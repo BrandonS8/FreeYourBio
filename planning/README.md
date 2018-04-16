@@ -14,7 +14,7 @@ Facebook/Twitter/YouTube:
 etc.  
 Some words...[oops! Out of characters can't write about themselves]"
 
-My app aims to turn your bio from that mess that takes up all the space to write about yourself into a single link. Most social medias even include a website link spot so you can totally #FreeYourBio
+My app aims to turn your bio from that mess that takes up all the space to write about yourself into a single link. Most social medias even include a website link spot so you can totally #FreeYourBio.
 
 ## Wireframes
 
@@ -32,10 +32,9 @@ Gold level features:
 
 * Keep track of link clicks / profile visits
 * Organize your links
-* Add a password to your link
-* Embed your links
+* Embed your profile on other sites
 * Embed a YouTube video on your page
-* Choose the background color for your page
+* Choose the background color/styling for your page
 
 ## MVP
 
@@ -55,6 +54,9 @@ Gold level features:
 * report system
 * custom user styles for their profiles
 * link click tracking
+* embed youtube video
+* allow a way to embed your profile from #FreeYourBio on your own site
+* organize order links are displayed
 
 ## Models
 
@@ -63,7 +65,7 @@ Gold level features:
 username: string  
 email: string  
 password: string  
-admin: true/false  
+admin: boolean
 has_many: links
 
 ### Link Model:
