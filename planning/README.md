@@ -48,3 +48,4 @@ Img:
 ## Notes
 
 input type color for color selecting
+https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address
