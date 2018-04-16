@@ -26,17 +26,23 @@ class LinksController < ApplicationController
   def create
     @user = User.find_by_username(params[:user_id])
     @link = current_user.links.create!(link_params)
-    puts link_params
-    if @link.site == "Snapchat"
-      @link.update(url: "https://www.snapchat.com/add/#{link_params[:url]}", img: "https://app.snapchat.com/web/deeplink/snapcode?username=#{link_params[:url]}&type=SVG")
-    elsif @link.site == "Facebook"
-      metaUrl = MetaInspector.new(@link.url)
-      @link.update(img: metaUrl.images.best)
-    elsif @link.site == "Twitter"
-      metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
-      @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
+
+    # https://regexr.com/3g1v7
+    if /(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png|gif|svg)/.match(@link.img)
+      if @link.site == "Snapchat"
+        @link.update(url: "https://www.snapchat.com/add/#{link_params[:url]}", img: "https://app.snapchat.com/web/deeplink/snapcode?username=#{link_params[:url]}&type=SVG")
+      elsif @link.site == "Facebook"
+        metaUrl = MetaInspector.new(@link.url)
+        @link.update(img: metaUrl.images.best)
+      elsif @link.site == "Twitter"
+        metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
+        @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
+      end
+      redirect_to user_link_path(@user, @link)
+    else
+      flash.now[:alert] = "Please link to an image"
+      render action: "new"
     end
-    redirect_to user_link_path(@user, @link)
   end
 
   def edit
@@ -48,8 +54,13 @@ class LinksController < ApplicationController
     @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
     if @link.user == current_user || current_user.try(:admin?)
-      @link.update(link_params)
-      redirect_to user_link_path(@user, @link)
+      if /(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png)/.match(link_params[:img])
+        @link.update(link_params)
+        redirect_to user_link_path(@user, @link)
+      else
+        flash.now[:alert] = "Please link to an image"
+        render action: "edit"
+      end
     else
       flash[:alert] = "This is not yours! NO TOUCHY."
       redirect_to user_profile_path(@user)
