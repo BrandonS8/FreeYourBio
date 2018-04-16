@@ -60,7 +60,7 @@ Gold level features:
 
 ### User Model:
 
-username:string  
+username: string  
 email: string  
 password: string  
 admin: true/false  
