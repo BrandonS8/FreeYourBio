@@ -19,6 +19,9 @@ class LinksController < ApplicationController
     elsif @link.site == "Facebook"
       metaUrl = MetaInspector.new(@link.url)
       @link.update(img: metaUrl.images.best)
+    elsif @link.site == "Twitter"
+      metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
+      @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
     end
     redirect_to link_path(@link)
   end
@@ -36,6 +39,7 @@ class LinksController < ApplicationController
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
+    redirect_to root_path
   end
 
   private

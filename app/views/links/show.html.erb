@@ -5,3 +5,5 @@
 <p><%=@link.site%></p>
 <%= link_to "ADD", @link.url %> 
 <%= image_tag @link.img %>
+<%= link_to "Edit", edit_link_path(@link) %> 
+<%= link_to "Delete",  link_path(@link), method: :delete%>
