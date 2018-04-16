@@ -57,3 +57,41 @@ main {
 .fa-shield-alt {
   color: lightgreen;
 }
+.link-container {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh;
+}
+.link-card {
+  height: 50vh;
+  width: 40vh;
+  background: lightsalmon;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.link-card img {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+}
+.link-card h1 {
+  margin: 0;
+  padding: 0;
+}
+.link-card p {
+  margin: 2px;
+  padding: 0;
+}
+.visit {
+  padding: 4px;
+  background: lightskyblue;
+  border: 1px solid white;
+  border-radius: 5px;
+}

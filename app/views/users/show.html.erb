@@ -1,9 +1,12 @@
-<%= @user %>
-<%= @user.username %>
-
-<% @user.links.each do |link| %>
-  <%=link.title%>
-<%= link_to "Link", user_link_path(@user, link) %> 
-<% end %>
-
 <%= link_to "New", new_user_link_path(@user) %> 
+<%= @user.username %>
+<div class='link-container'>
+<% @user.links.each do |link| %>
+<div class='link-card'>
+<%= image_tag link.img %>
+<h1><%=link.title%></h1>
+<p><%= link_to "Visit", link.url, class: 'visit' %> </p>
+<p><%= link_to "Link Details", user_link_path(@user, link) %> </p>
+</div>
+<% end %>
+</div>

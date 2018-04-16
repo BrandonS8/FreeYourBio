@@ -5,10 +5,10 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= params[:title] %>
-  <%= f.label :url, "Username or URL if using other" %>
+  <%= f.label :url, "Username/URL" %>
   <%= f.text_field :url %>
   <%= f.label :img %>
-  <%= f.text_field :img %>
+  <%= f.url_field :img %>
   <%= f.submit %>
 <% end %>
 
