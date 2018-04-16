@@ -5,8 +5,8 @@
 <div class='link-card'>
 <%= image_tag link.img %>
 <h1><%=link.title%></h1>
-<p><%= link_to "Visit", link.url, class: 'visit' %> </p>
-<p><%= link_to "Link Details", user_link_path(@user, link) %> </p>
+<p><%= link_to "Visit", link.url, class: 'link-button' %> </p>
+<p><%= link_to "Link Details", user_link_path(@user, link), class: 'link-button' %> </p>
 </div>
 <% end %>
 </div>

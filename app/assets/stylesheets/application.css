@@ -69,7 +69,6 @@ main {
 .link-card {
   height: 50vh;
   width: 40vh;
-  background: lightsalmon;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -86,10 +85,10 @@ main {
   padding: 0;
 }
 .link-card p {
-  margin: 2px;
+  margin: 8px 0px;
   padding: 0;
 }
-.visit {
+.link-button {
   padding: 4px;
   background: lightskyblue;
   border: 1px solid white;

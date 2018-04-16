@@ -3,10 +3,10 @@
   <%= f.label :site %>
   <%= f.select(:site, options_for_select([['Snapchat'], ['YouTube'], ['Facebook'], ['Twitter']])) %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :required => true, :maxlength => 12 %>
   <%= params[:title] %>
   <%= f.label :url, "Username/URL" %>
-  <%= f.text_field :url %>
+  <%= f.text_field :url, :required => true %>
   <%= f.label :img %>
   <%= f.url_field :img %>
   <%= f.submit %>

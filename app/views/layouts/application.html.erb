@@ -12,12 +12,14 @@
   <body>
   <nav>
   <div class='nav-left'>
+  <%= link_to root_path do %>
   <h1>#FreeYourBio</h1>
+  <%end%>
   </div>
   <div class='nav-right'>
   <% if current_user %>
   <% if current_user.admin %> <i class="fas fa-shield-alt"></i> <% end %>
-  <span class='username'><%= current_user.username %></span>
+  <%= link_to current_user.username,  user_profile_path(current_user.username), class: 'username' %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
   <% else %>
   <%= link_to "Sign Up", new_user_registration_path %>

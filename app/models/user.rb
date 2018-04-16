@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates :username, presence: :true, uniqueness: {case_sensitive: false}
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  # Prevent signing up with anything that could cause problems
+  validates :username, exclusion: {in: %w(admin superuser users links freeyourbio)}
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -20,8 +22,10 @@ class User < ApplicationRecord
       end
     end
   end
+
   def to_param
     username
   end
+
   has_many :links
 end
