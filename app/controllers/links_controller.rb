@@ -56,6 +56,10 @@ class LinksController < ApplicationController
   def edit
     @user = User.find_by_username(params[:user_id])
     @link = Link.find(params[:id])
+    if current_user != @user
+      flash[:alert] = "This is not yours."
+      redirect_to user_profile_path(@user)
+    end
   end
 
   def update

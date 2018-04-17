@@ -5,5 +5,7 @@
 <p><%=@link.site%></p>
 <%= link_to "ADD", @link.url %> 
 <%= image_tag @link.img %>
+<% if current_user == @link.user %>
 <%= link_to "Edit", edit_user_link_path(@user, @link) %> 
 <%= link_to "Delete",  user_link_path(@user, @link), method: :delete%>
+<% end %>

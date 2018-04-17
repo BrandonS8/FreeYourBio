@@ -6,7 +6,9 @@
 <%= image_tag link.img %>
 <h1><%=link.title%></h1>
 <p><%= link_to "Visit", link.url, class: 'link-button' %> </p>
+<% if current_user == @user %>
 <p><%= link_to "Link Details", user_link_path(@user, link), class: 'link-button' %> </p>
+<% end %>
 </div>
 <% end %>
 </div>
