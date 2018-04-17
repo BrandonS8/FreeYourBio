@@ -13,24 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Quicksand');
+
 body {
   margin: 0;
   padding: 0;
   background: lightslategrey;
+  font-family: 'IBM Plex Mono', monospace;
 }
 a {
   color: #fff;
   text-decoration: none;
 }
+.nav-opener {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-size: 3vw;
+  z-index: 2;
+  transition: transform 0.6s ease;
+}
 nav {
+  height: 100%;
+  width: 20%;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px 10px;
   margin: 0;
   text-align: center;
   background: #333;
   color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.nav-name {
+  margin: 90px 0;
+  font-size: 2.5vw;
+}
+.nav-user-auth {
+  margin-bottom: 10px;
+  font-size: 2vw;
 }
 .username {
   text-transform: uppercase;
@@ -75,6 +106,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'Quicksand', sans-serif;
 }
 .link-card img {
   height: 70%;
@@ -95,4 +127,35 @@ main {
   background: lightskyblue;
   border: 1px solid white;
   border-radius: 5px;
+}
+.user-profile-heading {
+  text-align: center;
+  margin: 0 0 5px 0;
+  padding: 0;
+  font-size: 8vw;
+}
+.new-link-button {
+  padding: 3px 10px;
+  background: lightgreen;
+  min-width: 100px;
+  text-align: center;
+  font-size: 2vw;
+}
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav {
+    width: 100%;
+    background: rgba(51, 51, 51, 0.99);
+  }
+  .nav-name {
+    font-size: 5vw;
+  }
+  .nav-user-auth {
+    font-size: 4vw;
+  }
 }

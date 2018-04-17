@@ -6,26 +6,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   </head>
 
   <body>
+  <i class="fas fa-bars nav-opener"></i>
   <nav>
-  <div class='nav-left'>
   <%= link_to root_path do %>
-  <h1>#FreeYourBio</h1>
+  <h1 class='nav-name'>#FreeYourBio</h1>
   <%end%>
-  </div>
-  <div class='nav-right'>
   <% if current_user %>
   <% if current_user.admin %> <i class="fas fa-shield-alt"></i> <% end %>
   <%= link_to current_user.username,  user_profile_path(current_user.username), class: 'username' %>
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+  <%= link_to "Sign Out", destroy_user_session_path, class: 'nav-user-auth', :method => :delete %>
   <% else %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Sign In",  new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path, class: 'nav-user-auth' %>
+  <%= link_to "Sign In",  new_user_session_path, class: 'nav-user-auth'  %>
   <% end %>
-</div>
 </nav>
 <main>
 <div class='info'>
@@ -40,5 +38,6 @@
     <%= yield %>
     </div>
     </main>
+    <%= javascript_include_tag 'main.js' %>
   </body>
 </html>
