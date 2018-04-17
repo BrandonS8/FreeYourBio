@@ -11,7 +11,7 @@ User.destroy_all
 brandon = User.create(username: "brandon", email: "brandon@brandon.com", password: "password", admin: true)
 
 brandon.links.create([
-  {site: "Snapchat", title: "Idk", url: "http://snapchat.com", img: "http://imgur.com"},
-  {site: "Facebook", title: "Idk", url: "http://facebook.com", img: "http://imgur.com"},
-  {site: "Twitter", title: "Idk", url: "http://twitter.com", img: "http://imgur.com"},
+  {site: "Snapchat", title: "My Snapchat", url: "https://www.snapchat.com/add/apocsnap", img: "https://app.snapchat.com/web/deeplink/snapcode?username=apocsnap&type=SVG"},
+  {site: "Facebook", title: "Zuck FB", url: "https://www.facebook.com/zuck", img: "https://scontent-atl3-1.xx.fbcdn.net/v/t34.0-1/p200x200/16176889_112685309244626_578204711_n.jpg?_nc_cat=0&oh=595a6b6d64bd8c6ba24b74518726bf6f&oe=5AD84765"},
+  {site: "Twitter", title: "GA Twitter", url: "https://twitter.com/GA_DC", img: "https://pbs.twimg.com/profile_images/894582346065874944/TpJdY0IQ_400x400.jpg"},
 ])
