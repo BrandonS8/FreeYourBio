@@ -19,7 +19,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: lightslategrey;
+  background: #fff;
   font-family: 'IBM Plex Mono', monospace;
 }
 a {
@@ -27,14 +27,18 @@ a {
   text-decoration: none;
 }
 .nav-opener {
-  color: #fff;
+  color: #333;
   position: absolute;
   top: 0;
   left: 0;
   margin: 10px;
   font-size: 3vw;
   z-index: 2;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease-in-out, color 1.5s ease, opacity 1s ease;
+  cursor: pointer;
+}
+.nav-opener:hover {
+  opacity: 0.7;
 }
 nav {
   height: 100%;
@@ -52,19 +56,31 @@ nav {
   left: 0;
   overflow-x: hidden;
   user-select: none;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 0.4s ease;
+  z-index: 1;
 }
 .nav-name {
   margin: 90px 0;
   font-size: 2.5vw;
 }
-.nav-user-auth {
+.nav-link {
   margin-bottom: 10px;
-  font-size: 2vw;
+  font-size: 2.2vw;
 }
-.username {
+.nav-link:hover {
+  color: #6ba6f9;
+}
+
+.nav-username {
   text-transform: uppercase;
+  font-size: 2.4vw;
+  position: absolute;
+  bottom: 30px;
+}
+.nav-username a:hover {
+  color: #6ba6f9;
 }
 main {
   display: flex;
@@ -113,6 +129,10 @@ main {
   width: 85%;
   border-radius: 20px;
   overflow: hidden;
+  transition: filter 0.5s ease-in-out;
+}
+.link-card img:hover {
+  filter: grayscale(100%);
 }
 .link-card h1 {
   margin: 0;
@@ -123,16 +143,28 @@ main {
   padding: 0;
 }
 .link-button {
-  padding: 4px;
-  background: lightskyblue;
-  border: 1px solid white;
-  border-radius: 5px;
+  padding: 5px 20px;
+  background: #333;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-button:hover {
+  transform: rotateX(30deg);
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.4);
+}
+.user-profile-top {
+  margin-top: 30px;
+  text-align: center;
+  width: 50%;
+  border-bottom: 1px solid #333;
 }
 .user-profile-heading {
-  text-align: center;
   margin: 0 0 5px 0;
   padding: 0;
-  font-size: 8vw;
+  font-size: 3vw;
+  color: #333;
 }
 .new-link-button {
   padding: 3px 10px;
@@ -148,14 +180,17 @@ main {
 }
 
 @media only screen and (max-width: 1000px) {
+  .nav-opener {
+    font-size: 5vw;
+  }
   nav {
     width: 100%;
     background: rgba(51, 51, 51, 0.99);
   }
   .nav-name {
-    font-size: 5vw;
+    font-size: 8vw;
   }
-  .nav-user-auth {
-    font-size: 4vw;
+  .nav-link {
+    font-size: 6vw;
   }
 }

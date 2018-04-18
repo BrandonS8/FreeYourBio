@@ -13,17 +13,19 @@
   <body>
   <i class="fas fa-bars nav-opener"></i>
   <nav>
-  <%= link_to root_path do %>
-  <h1 class='nav-name'>#FreeYourBio</h1>
-  <%end%>
+  <%= link_to "#FreeYourBio", root_path, class: 'nav-name' %>
+  <%= link_to "Home",  root_path, class: 'nav-link'  %>
   <% if current_user %>
+  <%= link_to "Sign Out", destroy_user_session_path, class: 'nav-link', :method => :delete %>
+  <div class='nav-username'>
   <% if current_user.admin %> <i class="fas fa-shield-alt"></i> <% end %>
-  <%= link_to current_user.username,  user_profile_path(current_user.username), class: 'username' %>
-  <%= link_to "Sign Out", destroy_user_session_path, class: 'nav-user-auth', :method => :delete %>
+  <%= link_to current_user.username,  user_profile_path(current_user.username)%>
+</div>
   <% else %>
-  <%= link_to "Sign Up", new_user_registration_path, class: 'nav-user-auth' %>
-  <%= link_to "Sign In",  new_user_session_path, class: 'nav-user-auth'  %>
+  <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %>
+  <%= link_to "Sign In",  new_user_session_path, class: 'nav-link'  %>
   <% end %>
+
 </nav>
 <main>
 <div class='info'>
