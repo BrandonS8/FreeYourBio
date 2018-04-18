@@ -28,4 +28,5 @@ class User < ApplicationRecord
   end
 
   has_many :links
+  has_many :settings
 end

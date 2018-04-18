@@ -1,6 +1,7 @@
 <div class='user-profile'>
 <div class='user-profile-top'>
 <h1 class='user-profile-heading'><%= @user.username.upcase %>'S LINKS</h1>
+<p><%= @user.settings[0].about %></p>
 <% if current_user == @user %>
 <%= link_to "NEW LINK", new_user_link_path(@user), class: 'new-link-button' %> 
 <% end %>

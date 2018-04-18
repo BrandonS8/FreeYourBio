@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418130846) do
+ActiveRecord::Schema.define(version: 20180418132454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20180418130846) do
     t.string "img"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "title"
+    t.string "about"
+    t.string "embedded"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_settings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,11 +47,11 @@ ActiveRecord::Schema.define(version: 20180418130846) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.boolean "admin"
-    t.string "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "links", "users"
+  add_foreign_key "settings", "users"
 end
