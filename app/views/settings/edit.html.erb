@@ -1,10 +1,11 @@
-<h1>Settings</h1>
+<h1 class='form-page-header'>Profile Settings</h1>
+<p class='form-page-req-info'># required field</p>
 <%= form_for @setting, url:  user_settings_path(@user, @setting), html: { method: :put } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, :required => true, :maxlength => 20%>
-  <%= f.label :about%>
-  <%= f.text_field :about %>
-  <%= f.label :embedded%>
+  <%= f.label :title, "#TITLE" %>
+  <%= f.text_field :title, :required => true, :maxlength => 20, class: "text-center"%>
+  <%= f.label :about, "#ABOUT" %>
+  <%= f.text_area :about %>
+  <%= f.label :embedded, "EMBEDDED URL"%>
   <%= f.url_field :embedded%>
-  <%= f.submit %>
+  <%= f.submit "UPDATE PROFILE" %>
 <% end %>

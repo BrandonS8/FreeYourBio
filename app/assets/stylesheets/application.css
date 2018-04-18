@@ -207,6 +207,54 @@ nav {
   justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+input,
+textarea,
+select {
+  background: #fff;
+  border: 1px solid #b2b2b0;
+  border-radius: 6px;
+  min-width: 300px;
+  min-height: 30px;
+  transition: border 0.5s ease-in-out;
+}
+textarea {
+  min-height: 50px;
+}
+input[type='text']:focus,
+textarea:focus,
+select:focus {
+  outline: 0px;
+  box-shadow: 0px 0px 3px 0px #1d1d11;
+  border: 1px solid #000;
+}
+
+input[type='submit'] {
+  margin: 15px 0;
+}
+input[type='submit']:hover {
+  box-shadow: 0px 0px 5px 0px #b2b2b0;
+  cursor: pointer;
+}
+
+.form-page-header {
+  margin: 8px 0;
+  padding: 0;
+}
+.form-page-req-info {
+  margin: 4px 0 8px 0;
+  padding: 0;
+}
+.text-center {
+  text-align: center;
+}
+
 @media only screen and (max-width: 1000px) {
   nav {
     width: 50%;
@@ -221,6 +269,7 @@ nav {
     width: 65%;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .nav-opener {
     font-size: 5vw;
