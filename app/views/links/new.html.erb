@@ -1,14 +1,14 @@
-<h1 class='form-page-header'>New Link</h1>
+<h1 class='form-page-header'>NEW LINK</h1>
 <p class='form-page-req-info'># required field</p>
 <%= form_for @link, url: user_links_path(@user), html: { method: :post } do |f| %>
   <%= f.label :site, "#TYPE" %>
-  <%= f.select(:site, options_for_select([['Snapchat'], ['YouTube'], ['Facebook'], ['Twitter'], ['OTHER']])) %>
+  <%= f.select(:site, ['Snapchat', 'YouTube', 'Facebook', 'Twitter', 'Other'], {}, :class => 'form-select') %>
   <%= f.label :title, "#TITLE" %>
   <%= f.text_field :title, :required => true, :maxlength => 12 %>
-  <%= f.label :url, "#URL" %>
-  <%= f.text_field :url, :required => true %>
-  <%= f.label :img, "IMAGE" %>
-  <%= f.url_field :img %>
-  <%= f.submit %>
+  <%= f.label :url, "#USERNAME", class: 'form-url-label' %>
+  <%= f.url_field :url, :required => true, class: 'form-url'%>
+  <%= f.label :img, "IMAGE", class: 'form-img'%>
+  <%= f.url_field :img, class: 'form-img' %>
+  <%= f.submit "ADD LINK" %>
 <% end %>
 

@@ -1,3 +1,6 @@
+// All custom JS is here
+
+// Navigation
 navOpener = document.querySelector('.nav-opener')
 nav = document.querySelector('nav')
 main = document.querySelector('main')
@@ -20,5 +23,33 @@ function showNav() {
     navOpenRotate += 90
     navOpener.style.transform = `rotate(${navOpenRotate}deg)`
     navOpener.style.color = '#333'
+  }
+}
+
+// Link Form
+selection = document.querySelector('.form-select')
+urlLabel = document.querySelector('.form-url-label')
+url = document.querySelector('.form-url')
+img = document.querySelectorAll('.form-img')
+var imgNeeded = ['Other']
+checkForImageNeeded()
+selection.addEventListener('change', () => {
+  if (selection.value === 'Snapchat' || selection.value === 'Twitter') {
+    url.type = 'text'
+    urlLabel.innerHTML = '#USERNAME'
+  } else {
+    url.type = 'url'
+    urlLabel.textContent = '#URL'
+  }
+  checkForImageNeeded()
+})
+
+function checkForImageNeeded() {
+  if (imgNeeded.includes(selection.value)) {
+    img[0].style.display = 'initial'
+    img[1].style.display = 'initial'
+  } else {
+    img[0].style.display = 'none'
+    img[1].style.display = 'none'
   }
 }
