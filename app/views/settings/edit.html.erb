@@ -1,7 +1,7 @@
 <h1>Settings</h1>
 <%= form_for @setting, url:  user_settings_path(@user, @setting), html: { method: :put } do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title, :required => true, :maxlength => 12%>
+  <%= f.text_field :title, :required => true, :maxlength => 20%>
   <%= f.label :about%>
   <%= f.text_field :about %>
   <%= f.label :embedded%>
