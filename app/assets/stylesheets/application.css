@@ -387,7 +387,7 @@ input[type='submit']:hover {
   z-index: -2;
 }
 .animated-svg-text {
-  stroke-dashoffset: 3000;
+  stroke-dashoffset: 100%;
   stroke-dasharray: 3000;
   animation: dash-draw 5s infinite linear forwards;
   animation-direction: alternate;
