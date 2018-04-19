@@ -4,9 +4,13 @@
 navOpener = document.querySelector('.nav-opener')
 nav = document.querySelector('nav')
 main = document.querySelector('main')
-navOpener.addEventListener('click', showNav)
+if (navOpener) {
+  navOpener.addEventListener('click', showNav)
+}
 var navOpenRotate = 0
-nav.style.opacity = '0'
+if (nav) {
+  nav.style.opacity = '0'
+}
 function showNav() {
   if (nav.style.opacity === '0') {
     nav.style.visibility = 'visible'
@@ -32,17 +36,21 @@ urlLabel = document.querySelector('.form-url-label')
 url = document.querySelector('.form-url')
 img = document.querySelectorAll('.form-img')
 var imgNeeded = ['Other']
-checkForImageNeeded()
-selection.addEventListener('change', () => {
-  if (selection.value === 'Snapchat' || selection.value === 'Twitter') {
-    url.type = 'text'
-    urlLabel.innerHTML = '#USERNAME'
-  } else {
-    url.type = 'url'
-    urlLabel.textContent = '#URL'
-  }
+if (img.length > 0) {
   checkForImageNeeded()
-})
+}
+if (selection) {
+  selection.addEventListener('change', () => {
+    if (selection.value === 'Snapchat' || selection.value === 'Twitter') {
+      url.type = 'text'
+      urlLabel.innerHTML = '#USERNAME'
+    } else {
+      url.type = 'url'
+      urlLabel.textContent = '#URL'
+    }
+    checkForImageNeeded()
+  })
+}
 
 function checkForImageNeeded() {
   if (imgNeeded.includes(selection.value)) {
@@ -52,4 +60,17 @@ function checkForImageNeeded() {
     img[0].style.display = 'none'
     img[1].style.display = 'none'
   }
+}
+var deleteButton = document.querySelector('.link-delete-button')
+var deleteCheck = document.querySelector('.confirm-delete')
+if (deleteCheck) {
+  deleteCheck.addEventListener('change', e => {
+    if (e.target.checked) {
+      deleteButton.disabled = false
+      deleteButton.classList.remove('link-disabled')
+    } else {
+      deleteButton.disabled = true
+      deleteButton.classList.add('link-disabled')
+    }
+  })
 }

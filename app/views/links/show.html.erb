@@ -1,10 +1,19 @@
-<h1><%=@user.username%></h1>
 <h1><%=@link.title%></h1>
-
-<p><%=@link.site%></p>
-<%= link_to "ADD", @link.url %> 
-<%= image_tag @link.img %>
+<div class='link-detail-buttons text-center'>
+<%= link_to "Visit", @link.url, class: "link-button" %> 
 <% if current_user == @link.user %>
-<%= link_to "Edit", edit_user_link_path(@user, @link) %> 
-<%= link_to "Delete",  user_link_path(@user, @link), method: :delete%>
+<%= link_to "Edit", edit_user_link_path(@user, @link), class: "link-button" %> 
+<%= link_to "Delete",  user_link_path(@user, @link), method: :delete, class: "link-button link-disabled link-delete-button"%>
+<div class='confirm-delete-form'>
+<form>
+<label class="control control-checkbox">
+        DELETE?
+            <input type="checkbox" class='confirm-delete'/>
+        <div class="control_indicator"></div>
+    </label>
+  </form>
+</div>
 <% end %>
+</div>
+<p><%=@link.site%></p>
+<%= image_tag @link.img, class: 'link-detail-img' %>

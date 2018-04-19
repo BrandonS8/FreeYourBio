@@ -35,7 +35,7 @@ class LinksController < ApplicationController
       metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
       @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
     elsif @link.site == "YouTube"
-      if /^https?:\/\/(.*)/.match(@link.url)
+      if !/^https?:\/\/(.*)/.match(@link.url)
         @link.update(url: "https://#{@link.url}")
         # else
         #   flash.now[:alert] = "Please enter a full URL https://example.com"
