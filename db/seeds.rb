@@ -22,6 +22,6 @@ freeyourbio = User.create!(username: "freeyourbio", email: "freeyourbio@gmail.co
 freeyourbio.links.create([
   {site: "Snapchat", title: "Our Snapchat", url: "https://www.snapchat.com/add/freeyourbio", img: "https://app.snapchat.com/web/deeplink/snapcode?username=freeyourbio&type=SVG"},
   {site: "Instagram", title: "Our Insta", url: "https://instagram.com/freeyourbio", img: "https://instagram.fist1-2.fna.fbcdn.net/vp/f17e1275a70fc32e93cbf434ddc32bcd/5B6CCC7A/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"},
-  {site: "Twitter", title: "Our Twitter", url: "https://twitter.com/freeyourbio", img: "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"}
+  {site: "Twitter", title: "Our Twitter", url: "https://twitter.com/freeyourbio", img: "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"},
 ])
 freeyourbio.settings.create(title: "#FreeYourBio", about: "#FreeYourBio was created because social media bios are being consumed by links to other social media, websites, YouTube videos, etc. These bios often have limited characters which causes you to run out of room to talk about YOU, especially when you have other things in your bio.", embedded: "")
