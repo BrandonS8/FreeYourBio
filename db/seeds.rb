@@ -8,7 +8,7 @@
 Setting.destroy_all
 Link.destroy_all
 User.destroy_all
-brandon = User.create(username: "brandon", email: "brandon@brandon.com", password: "password", admin: true)
+brandon = User.create!(username: "brandon", email: "brandon@brandon.com", password: "password", admin: true)
 
 brandon.links.create([
   {site: "Snapchat", title: "My Snapchat", url: "https://www.snapchat.com/add/apocsnap", img: "https://app.snapchat.com/web/deeplink/snapcode?username=apocsnap&type=SVG"},
@@ -17,3 +17,7 @@ brandon.links.create([
 ])
 
 brandon.settings.create(title: "Brandon's Page", about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", embedded: "https://www.youtube.com/embed/U31cQJLi-mQ")
+
+freeyourbio = User.create!(username: "freeyourbio", email: "freeyourbio@gmail.com", password: "password", admin: true)
+freeyourbio.links.create(site: "Snapchat", title: "Our Snapchat", url: "https://www.snapchat.com/add/freeyourbio", img: "https://app.snapchat.com/web/deeplink/snapcode?username=freeyourbio&type=SVG")
+freeyourbio.settings.create(title: "#FreeYourBio", about: "#FreeYourBio was created because social media bios are being consumed by links to other social media, websites, YouTube videos, etc. These bios often have limited characters which causes you to run out of room to talk about YOU, especially when you have other things in your bio.", embedded: "")
