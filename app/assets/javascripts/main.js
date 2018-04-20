@@ -1,9 +1,9 @@
 // All custom JS is here
 
 // Navigation
-navOpener = document.querySelector('.nav-opener')
-nav = document.querySelector('nav')
-main = document.querySelector('main')
+var navOpener = document.querySelector('.nav-opener')
+var nav = document.querySelector('nav')
+var main = document.querySelector('main')
 if (navOpener) {
   navOpener.addEventListener('click', showNav)
 }
@@ -31,10 +31,10 @@ function showNav() {
 }
 
 // Link Form
-selection = document.querySelector('.form-select')
-urlLabel = document.querySelector('.form-url-label')
-url = document.querySelector('.form-url')
-img = document.querySelectorAll('.form-img')
+var selection = document.querySelector('.form-select')
+var urlLabel = document.querySelector('.form-url-label')
+var url = document.querySelector('.form-url')
+var img = document.querySelectorAll('.form-img')
 var imgNeeded = ['Other']
 if (img.length > 0) {
   checkForImageNeeded()
