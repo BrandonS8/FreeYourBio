@@ -41,7 +41,11 @@ if (img.length > 0) {
 }
 if (selection) {
   selection.addEventListener('change', () => {
-    if (selection.value === 'Snapchat' || selection.value === 'Twitter') {
+    if (
+      selection.value === 'Snapchat' ||
+      selection.value === 'Twitter' ||
+      selection.value === 'Instagram'
+    ) {
       url.type = 'text'
       urlLabel.innerHTML = '#USERNAME'
     } else {

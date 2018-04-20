@@ -67,3 +67,4 @@ ES6 only half works, const and let will cause 'Identifier _variableName_ has alr
 * Social media feed integrations
 * Signup with oauth or phone
 * Moving forms out of their own pages, signup will be on its own but signin will be in nav. New link and edit profile will be on the profile page itself, displayed when clicking buttons for them
+* Make profile pictures pulled from meta tags automatically update

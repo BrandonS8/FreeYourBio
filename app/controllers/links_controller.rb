@@ -33,7 +33,10 @@ class LinksController < ApplicationController
       @link.update(img: metaUrl.images.best)
     elsif @link.site == "Twitter"
       metaUrl = MetaInspector.new("https://twitter.com/#{link_params[:url]}")
-      @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images[1])
+      @link.update(url: "https://twitter.com/#{link_params[:url]}", img: metaUrl.images.best)
+    elsif @link.site == "Instagram"
+      metaUrl = MetaInspector.new("https://instagram.com/#{link_params[:url]}")
+      @link.update(url: "https://instagram.com/#{link_params[:url]}", img: metaUrl.meta["og:image"])
     elsif @link.site == "YouTube"
       if !/^https?:\/\/(.*)/.match(@link.url)
         @link.update(url: "https://#{@link.url}")

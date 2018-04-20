@@ -2,7 +2,7 @@
 <p class='form-page-req-info'># required field</p>
 <%= form_for @link, url: user_links_path(@user), html: { method: :post } do |f| %>
   <%= f.label :site, "#TYPE" %>
-  <%= f.select(:site, ['Snapchat', 'YouTube', 'Facebook', 'Twitter', 'Other'], {}, :class => 'form-select') %>
+  <%= f.select(:site, ['Snapchat', 'YouTube', 'Instagram','Facebook', 'Twitter', 'Other'], {}, :class => 'form-select') %>
   <%= f.label :title, "#TITLE" %>
   <%= f.text_field :title, :required => true, :maxlength => 12 %>
   <%= f.label :url, "#USERNAME", class: 'form-url-label' %>
